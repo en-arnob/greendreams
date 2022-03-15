@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mt-3 container">
+    <h3>{{item.title}}</h3>
+    <a class="btn btn-warning" href="{% url 'app:home' %}">Back</a><hr>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{item.image.url}}" alt="" style="width: 400px; height: 380px;">
+        </div>
+        <div class="col-md-6">
+            <h3>{{item.title}}</h3>
+            <h5 class="text-info">Category: {{item.category}}</h5>
+            <h5 class="text-danger">Price: {{item.price}} Taka</h5>
+            <p>{{item.description}}</p>
+            <button class="d-block  btn btn-outline-danger mt-2">Add To Cart</button>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

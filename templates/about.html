@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<section id="team" class="team">
+    {% load static %}
+    <div class="container">
+
+      <div class="section-title" data-aos="zoom-out">
+        <h2>Team</h2>
+      </div>
+
+      <div class="row ml-auto">
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="member" data-aos="fade-up">
+            <div class="member-img">
+                <img src="{% static 'photo/sabbir.jpg' %}" class="img-fluid"  alt="">
+              <div class="social">
+                <a href="#"><i class="fas fa-twitter fa"></i></a>
+                <a href="#"><i class="fas fa-facebook fa"></i></a>
+                <a href="#"><i class="fas fa-instagram fa"></i></a>
+                <a href="#"><i class="fas fa-linkedin fa"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>SABBIR AHAMMED</h4>
+              <h6>181-15-11015</h6>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="member" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-img">
+              <img src="{% static 'photo/meherin.jpg' %}" class="img-fluid"  alt="">
+              <div class="social">
+                <a href="#"><i class="fas fa-twitter fa"></i></a>
+                <a href="#"><i class="fas fa-facebook fa"></i></a>
+                <a href="#"><i class="fas fa-instagram fa"></i></a>
+                <a href="#"><i class="fas fa-linkedin fa"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>MEHERIN AKHTER</h4>
+              <h6>181-15-10634</h6>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="member" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-img">
+              <img src="{% static 'photo/arno.jpg' %}" class="img-fluid" s alt="">
+              <div class="social">
+                <a href="#"><i class="fas fa-twitter fa"></i></a>
+                <a href="#"><i class="fas fa-facebook fa"></i></a>
+                <a href="#"><i class="fas fa-instagram fa"></i></a>
+                <a href="#"><i class="fas fa-linkedin fa"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>KHALID IBN ALAM UTSOB</h4>
+              <h6>181-15-10713</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+{% endblock %}

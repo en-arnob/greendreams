@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+{%block content%}
+
+<section class="mt-4">
+    <div class="container text-center">
+        <h1 class="ml-4 mb-3 text-center" id="mainText"><span class="fas fa-search fa"></span> Showing Results for <span class="text-secondary">{{request.GET.keyword}}</span></h1>
+        <div class="row">
+            {% for result in results %}
+            <div class="col-md-4 " id="rowBorder">
+                <img src="{{result.image.url}}" alt="#" style="width: 200px;">
+                <p class="">{{result.title}}</p>
+               <p class="">&#2547; {{result.price}}</p>
+               <a href="{% url 'app:details' result.slug%}" class="ml-5">Details</a> 
+               <a href="{% url 'app:addtocart' result.id%}" class="d-block btn btn-outline-danger mt-2">Add To Cart</a>
+            </div>
+            {% endfor %}
+       </div>
+        <div class="row mt-4" id="secondRow">
+            <div class="col">
+                <h1 class="text-center text-secondary">End of the Result</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

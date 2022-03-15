@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class=" p-2">
+    <h3 class="float-left mt-3"><span class="fas fa-shopping-cart fa"></span> Cart</h3>
+    <div class="float-right">
+      <a href="#" class="nav-link">Logged in as @ {{request.user.username}}</a>
+      <a class="nav-link" href="{% url 'app:logout'%}" tabindex="-1" aria-disabled="true">Logout</a>
+    </div>
+    <span class="clearfix"></span>
+    </div>
+    
+    <div class="row p-2" style="background: #000; color: aliceblue;">
+        <div class="col-6">
+           <p>Product</p>
+        </div>
+        <div class="col-2">
+            <p class="">Price</p>
+        </div>
+        <div class="col-2">
+         <p> Quantity</p>
+         </div>
+        <div class="col-2">
+            <p>Subtotal</p>
+        </div>
+    </div>
+    {% for cp in cart.cartplant_set.all %}
+    <div class="row p-2" style="border: 1px solid red;">
+        <div class="col-6">
+            <img src="{{cp.plant.image.url}}" alt="" style="width: 200px;height: 120px;">
+            <p class="d-inline-block">{{cp.plant.title}}</p>
+        </div>
+        <div class="col-2">
+            <p class="mt-5">&#2547; {{cp.rate}}</p> 
+        </div>
+        <div class="col-2">
+            <p class="d-inline-block">{{cp.quantity}}</p>
+            <div>
+                <a href="{% url 'app:managecart' cp.id %}?action=inc" class="btn btn-primary"> + </a>
+                <a href="{% url 'app:managecart' cp.id %}?action=dcr" class="btn btn-warning"> - </a>
+                <a href="{% url 'app:managecart' cp.id %}?action=rmv" class="btn btn-danger"> x </a>
+
+            </div>
+            
+        </div>
+        <div class="col-2">
+            <p class="mt-5">&#2547; {{cp.subtotal}}</p>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col d-flex justify-content-between p-2 mt-2 bg-danger">
+            <p class="text-right text-white">Total: &#2547; {{cart.total}}</p>
+
+        </div>
+    </div>
+    {% if cart.cartplant_set.all%}
+    <a href="{%url 'app:checkout'%}" class="btn btn-lg btn-primary mt-4 buy">Checkout</a>
+ </div>
+ {% endif %}
+
+{% endblock %}

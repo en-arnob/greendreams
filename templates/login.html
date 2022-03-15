@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-4">
+            <h3>Login here</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-info">Login</button>
+                {%if error %}
+                <li style="color: red;">{{error}}</li>
+
+                {%endif%}
+            </form>
+            <p class="mt-4 text-secondary">Dont have an account? <a class="" href="{% url 'app:customerreg' %}{% if request.GET.next %}?next={{request.GET.next}}{%endif%}">Register</a> now!</p>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

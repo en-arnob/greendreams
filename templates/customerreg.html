@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .errorlist{
+        color: rgb(218, 31, 31);
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-4">
+            <h3>Customer Registration</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-info">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

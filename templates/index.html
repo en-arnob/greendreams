@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="mt-4">
+    <h1 class="text-danger text-center mb-4">TODAY'S FEATURED</h1>
+    <div class="container latestIn text-center">
+      <div class="row">
+          {% for plant in plants %}
+          {% if plant.featured == True %}
+          <div class="col-lg-3 col-md-4 col-sm-6">
+              <div>
+                <img src="{{plant.image.url}}" alt="" style="width: 220px; height: 200px;">
+                <h3 class="">{{ plant.title }}</h3>
+                <span class="price">&#2547; {{plant.price}}</span>
+                <a href="{% url 'app:details' plant.slug%}" class="ml-5">Details</a>
+              </div>
+                
+                    <a href="{% url 'app:addtocart' plant.id %}" class="btn btn-outline-danger mt-2 mr-4 text-center ">Add To Cart</a>
+                  
+          </div>
+          {% endif %}
+          {% endfor %}
+          
+</section>
+   
+<section class="mt-4">
+    <h1 class="text-danger text-center mb-4">LATEST IN STORE</h1>
+    <div class="container latestIn text-center">
+      <div class="row">
+          {% for plant in plants %}
+          <div class="col-lg-3 col-md-4 col-sm-6">
+              <img src="{{plant.image.url}}" alt="" style="width: 220px; height: 200px;">
+                  <h3 class="">{{ plant.title }}</h3>
+                  <span class="price">&#2547; {{plant.price}}</span>
+                  <a href="{% url 'app:details' plant.slug%}" class="ml-5">Details</a>
+                  <a href="{% url 'app:addtocart' plant.id %}" class="btn btn-outline-danger mt-2 mr-4 text-center ">Add To Cart</a>
+          </div>
+          {% endfor %}
+          
+</section>
+    
+
+{% endblock %}
